@@ -1,11 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import { useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext";
 
-function Form() {
+function Form({ setTodos }) {
   const [input, setInput] = useState("");
-  const ctx = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,8 +15,7 @@ function Form() {
         }
       )
       .then((res) => {
-        console.log(res);
-        ctx.setTodos([...ctx.todos, res.data]);
+        setTodos((prev) => [res.data, ...prev]);
         setInput("");
       })
       .catch((err) => console.log(err));
