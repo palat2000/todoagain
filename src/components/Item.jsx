@@ -1,7 +1,7 @@
-function Item() {
+function Item({ title }) {
   return (
     <li className="flex justify-between bg-white px-3 py-4 border border-zinc-200 items-center rounded-md">
-      <span className="flex-grow">TodoTodo</span>
+      <span className="flex-grow">{title}</span>
       <div className="flex gap-2">
         <button className="bg-blue-500 px-3 py-1.5 text-white rounded-md">
           Edit
